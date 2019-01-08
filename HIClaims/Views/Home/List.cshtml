@@ -1,0 +1,62 @@
+﻿@model IEnumerable<HIClaims.Models.Claim>
+
+<p style="margin-top:20px">
+    <button class="btn btn-info" name="NewClaim" id="NewClaim" onclick="location.href='@Url.Action("ModalPopup", "Home")'">New Claim</button>
+    @*@Html.ActionLink("Create New", "Create")*@
+</p>
+<table class="table table-hover">
+    <tr>
+        <th scope="col">
+            Customer Name
+        </th>
+        <th scope="col">
+            Claim Date
+        </th>
+        <th scope="col">
+            Claim Amount
+        </th>
+        <th scope="col">
+            Claim Number
+        </th>
+        <th scope="col">
+Policy Number
+        </th>
+        <th scope="col">
+            @Html.DisplayNameFor(model => model.Gender)
+        </th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+    <tr>
+        <td scope="row">
+            @Html.DisplayFor(modelItem => item.CustomerName)
+        </td>
+        <td scope="row">
+            @Html.DisplayFor(modelItem => item.ClaimedDate)
+        </td>
+        <td scope="row">
+            @Html.DisplayFor(modelItem => item.ClaimAmount)
+        </td>
+        <td scope="row">
+            @Html.DisplayFor(modelItem => item.ClaimNo)
+        </td>
+        <td scope="row">
+            @Html.DisplayFor(modelItem => item.PolicyNo)
+        </td>
+        <td scope="row">
+            @Html.DisplayFor(modelItem => item.Gender)
+        </td>
+    </tr>
+    }
+</table>
+
+<div id='myModal' class='modal'>
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div id='myModalContent'></div>
+        </div>
+    </div>
+
+</div>
+

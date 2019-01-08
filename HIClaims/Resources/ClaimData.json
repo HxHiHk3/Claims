@@ -1,0 +1,29 @@
+[
+  {
+    "ClaimNo": 1,
+    "CustomerName": "Muthu Senthil",
+    "ClaimedDate": "2019-01-01T00:00:00",
+    "ClaimAmount": 2300.0,
+    "PolicyNo": 4568643,
+    "Gender": "M",
+    "Description": "Claim approved"
+  },
+  {
+    "ClaimNo": 2,
+    "CustomerName": "Ruthwik",
+    "ClaimedDate": "2019-01-03T00:00:00",
+    "ClaimAmount": 2500.0,
+    "PolicyNo": 4568643,
+    "Gender": "M",
+    "Description": "Claim approved"
+  },
+  {
+    "ClaimNo": 1234,
+    "CustomerName": "jayaram",
+    "ClaimedDate": "2019-07-01T00:00:00",
+    "ClaimAmount": 563.0,
+    "PolicyNo": 896532,
+    "Gender": "M",
+    "Description": "Claim approved"
+  }
+]

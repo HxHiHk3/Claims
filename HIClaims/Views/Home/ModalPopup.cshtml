@@ -1,0 +1,118 @@
+﻿@model HIClaims.Models.Claim
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryui")
+    @Styles.Render("~/Content/cssjqryUi")
+
+    @Scripts.Render("~/bundles/jqueryval")
+
+    <script type="text/javascript">
+
+        $(document).ready(function () {
+            $('input[type=datetime]').datepicker();
+        });
+    </script>
+
+}
+
+@using (Html.BeginForm("AddClaims", "Home"))
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+        <h4>New Claim Application Form</h4>
+        <hr />
+        @if (ViewData["Error"] != null)
+        {
+            <ul>
+                    <li class="text-danger">@Html.Raw(ViewData["Error"].ToString())</li>
+                
+            </ul>
+        }
+        @*@Html.ValidationSummary(true, ViewData["Error"].ToString(), new { @class = "text-danger" })*@
+        <table style="width:900px;">
+            <tr style="width:100%">
+                <td>
+                    <div class="form-group">
+                        @Html.Label("Claim Number", htmlAttributes: new { @class = "control-label col-md-4" })
+                        <div class="col-md-12">
+                            @Html.EditorFor(model => model.ClaimNo, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.ClaimNo, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                </td>
+                <td>
+                    <div class="form-group">
+                        @Html.Label("Customer Name", htmlAttributes: new { @class = "control-label col-md-6" })
+                        <div class="col-md-10">
+                            @Html.EditorFor(model => model.CustomerName, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.CustomerName, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <div class="form-group">
+                        @Html.Label("Claim Date", htmlAttributes: new { @class = "control-label col-md-4" })
+                        <div class="col-md-10">
+                            @Html.EditorFor(model => model.ClaimedDate, new { htmlAttributes = new { @class = "form-control datepicker", placeholder = "Claim Date", @readonly = "true" } })
+                            @Html.ValidationMessageFor(model => model.ClaimedDate, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                </td>
+                <td>
+                    <div class="form-group">
+                        @Html.Label("Claim Amount", htmlAttributes: new { @class = "control-label col-md-4" })
+                        <div class="col-md-10">
+                            @Html.EditorFor(model => model.ClaimAmount, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.ClaimAmount, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <div class="form-group">
+                        @Html.Label("Policy Number", htmlAttributes: new { @class = "control-label col-md-4" })
+                        <div class="col-md-10">
+                            @Html.EditorFor(model => model.PolicyNo, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.PolicyNo, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                </td>
+                <td>
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.Gender, htmlAttributes: new { @class = "control-label col-md-4" })
+                        <div class="col-md-10">
+                            @Html.DropDownListFor(model => model.Gender, new List<SelectListItem>() {
+                                        new SelectListItem() { Text = "Male", Value = "Male" },
+                                        new SelectListItem() { Text = "Female", Value = "Female" } }, new { @class = "form-control" })
+                            @*@Html.EditorFor(model => model.Gender, new { htmlAttributes = new { @class = "form-control" } })*@
+                            @Html.ValidationMessageFor(model => model.Gender, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2">
+                    <div class="form-group">
+                        @Html.Label("Description", htmlAttributes: new { @class = "control-label col-md-4" })
+                        <div class="col-md-10">
+                            @Html.EditorFor(model => model.Description, new { htmlAttributes = new { @class = "form-control" } })
+                            @*@Html.ValidationMessageFor(model => model.PolicyNo, "", new { @class = "text-danger" })*@
+                        </div>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <div class="form-group">
+                        <div class="col-md-offset-2 col-md-10">
+                            <input type="submit" value="Create" class="btn btn-default btn-info" />
+                        </div>
+                    </div>
+                </td>
+            </tr>
+        </table>
+    </div>
+}

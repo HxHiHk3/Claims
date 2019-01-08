@@ -1,0 +1,48 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+</head>
+<body>
+    <div class="navbar navbar-expand-lg navbar-dark bg-primary" style="margin-top:-60px">
+
+        <div class="navbar-brand">
+            @Html.ActionLink("Tortuga Insurance", "List", "Home", new { area = "" }, new { @class = "navbar-brand" })
+        </div>
+        <div class="collapse navbar-collapse">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item" style="visibility:hidden">
+                    <  a class="nav-link" href='@Url.Action("List", "Home")'>Claim List<span class="sr-only">(current)</span></a>
+                    @*@Html.ActionLink("Contact", "Contact", "Home", "class='nav-link'")*@
+                </li>
+                <li class="nav-item active" style="visibility:hidden">
+                    <a class="nav-link" href='@Url.Action("Index", "Home")'>Home <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item" style="visibility:hidden">
+                    <a class="nav-link" href='@Url.Action("About", "Home")'>About <span class="sr-only">(current)</span></a>
+                    @*@Html.ActionLink("About", "About", "Home", "class='nav-link'")*@
+                </li>
+                <li class="nav-item" style="visibility:hidden">
+                    <a class="nav-link" href='@Url.Action("Contact", "Home")'>Contact<span class="sr-only">(current)</span></a>
+                    @*@Html.ActionLink("Contact", "Contact", "Home", "class='nav-link'")*@
+                </li>
+            </ul>
+        </div>
+
+    </div>
+    <div class="container body-content">
+        @RenderBody()
+        <hr />
+        <footer>
+        </footer>
+    </div>
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+</body>
+</html>
