@@ -28,11 +28,10 @@ namespace HIClaims.BL
         public bool SaveClaims( Claim claim)
         {
             bool returnValue = false;
-            var excp_Msg="Err_msg Place holder";
+            var excp_Msg=string.Empty;
             try
             {
                 
-                //var resourcePath = HttpRuntime.AppDomainAppPath + "/bin/Resources/ClaimData.json";
                 var resourcePath = HttpContext.Current.Server.MapPath(@"~/bin/Resources/ClaimData.json");
 
                 var claims = GetClaims();
