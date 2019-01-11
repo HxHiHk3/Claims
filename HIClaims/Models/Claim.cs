@@ -14,7 +14,7 @@ namespace HIClaims.Models
         [Required(ErrorMessage = "Enter a valid Customer Name")]
         [RegularExpression(@"^[a-zA-Z]+$", ErrorMessage = "Name Should only contain alphabets")]
         public string CustomerName { get; set; }
-        [Required(ErrorMessage = "Enter a valid Claim Date")]
+        [Required(ErrorMessage = "Enter a valid claim Date")]
         public DateTime ClaimedDate { get; set; }
         [Required(ErrorMessage = "Enter a valid Claim Amount")]
         public float ClaimAmount { get; set; }
