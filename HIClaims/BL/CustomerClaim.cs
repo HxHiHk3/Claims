@@ -15,17 +15,15 @@ namespace HIClaims.BL
         public List<Claim> GetClaims()
         {
             string result = string.Empty;
-           List<Claim> claims = new List<Claim>();
-            var path="~/bin/Resources/ClaimData.json";
+           var path="~/bin/Resources/ClaimData.json";
 
             var resourcePath = HttpContext.Current.Server.MapPath(@path);
             using (StreamReader reader = new StreamReader(resourcePath))
             {
                 result = reader.ReadToEnd();
             }
-            claims = JsonConvert.DeserializeObject<List<Claim>>(result);
-            return claims;
-        }
+          return JsonConvert.DeserializeObject<List<Claim>>(result);
+          }
 
         public bool SaveClaims( Claim claim)
         {
