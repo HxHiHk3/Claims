@@ -15,9 +15,10 @@ namespace HIClaims.BL
         public List<Claim> GetClaims()
         {
             string result = string.Empty;
-            var claims = new List<Claim>();
-            
-            var resourcePath = HttpContext.Current.Server.MapPath(@"~/bin/Resources/ClaimData.json");
+           List<Claim> claims = new List<Claim>();
+            var path="~/bin/Resources/ClaimData.json";
+
+            var resourcePath = HttpContext.Current.Server.MapPath(@path);
             using (StreamReader reader = new StreamReader(resourcePath))
             {
                 result = reader.ReadToEnd();
@@ -29,6 +30,7 @@ namespace HIClaims.BL
         public bool SaveClaims( Claim claim)
         {
             bool returnValue = false;
+            var excp_Msg="Err_msg Place holder";
             try
             {
                 
@@ -43,6 +45,7 @@ namespace HIClaims.BL
             }catch(Exception e)
             {
                 returnValue = false;
+                excp_Msg=e.Message;
                 throw;
             }
             return returnValue;
