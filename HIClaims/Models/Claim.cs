@@ -9,7 +9,7 @@ namespace HIClaims.Models
     public class Claim
     {
         [Required(ErrorMessage ="Enter a valid Claim Number")]
-        [Range(0, int.MaxValue, ErrorMessage = "Please enter valid Klaim Number")]
+        [Range(0, int.MaxValue, ErrorMessage = "Please enter valid claim Number")]
         public int ClaimNo { get; set; }
         [Required(ErrorMessage = "Enter a valid Customer Name")]
         [RegularExpression(@"^[a-zA-Z]+$", ErrorMessage = "Name Should only contain alphabets")]
